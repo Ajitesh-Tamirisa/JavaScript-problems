@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello');
+
+    // Interpolated
+    console.log('Hello aliens!\nI am a %s string!', 'Navin Reddy');
+    // console.log(`Hello aliens!\nI am a ${variable_name} string!`);
+
+    // Styled
+    console.log('%cMaximums Decimus Meridius', 'font-size:40px; color:white; background:blue;')
+
+    // warning!
+    console.warn('%c!WARNING!', 'background: orange; color: black; font-size: 20px;');
+
+    // Error :|
+    console.error('%c!ERROR MESSAGE!', 'background: red; color: black; font-size: 20px;');
+
+    // Info
+    console.log('%c!INFO MESSAGE!', 'background: green; color: black; font-size: 20px;');
+
+    // Testing
+    // Nothing will happen if the assertion is true.
+    // If the assertion is false, an error will be thrown.
+    console.assert(1 === 2, '1!=2, That is wrong!');
+
+    // clearing
+    // console.clear();
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+        // console.group(dog.name);
+        console.groupCollapsed(dog.name);
+        console.log(`Hi this is ${dog.name}`);
+        console.log(`I am ${dog.age} years old.`);
+        console.log(`That is ${dog.age * 7} human years.`);
+        console.groupEnd(dog.name);
+    })
+
+    // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Smith');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Smith');
+    console.count('Smith');
+    console.count('Smith');
+    console.count('Wes');
+    console.count('Smith');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Smith');
+
+    // timing
+    console.time('Fetching data');
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json =>{
+        console.log(json);
+        console.timeEnd('Fetching data')
+    });
+
+    //table
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
